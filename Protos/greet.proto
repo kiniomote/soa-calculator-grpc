@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcCalculatorService";
+
+package GrpcCalculator;
+
+service GrpcCalculator {
+  rpc Login (GrpcLoginData) returns (GrpcTokenResult);
+  rpc Calculate (GrpcCalculateData) returns (GrpcCalculateResult);
+}
+
+message GrpcCalculateData {
+  double FirstParam = 1;
+  double SecondParam = 2;
+  string Sign = 3;		
+}
+
+message GrpcCalculateResult {
+  double Result = 1;
+}
+
+message GrpcLoginData {
+	string Username = 1;
+	string Password = 2;
+}
+
+message GrpcTokenResult {
+	string Token = 1;
+}
